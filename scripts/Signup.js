@@ -33,6 +33,8 @@ class Signup {
 
     this.setErrorMessages();
 
+    // comprobar si hay errores, si no hay errores activa el boton Sign up (disabled = false)
+    this.checkButton();
   }
 
   // gestionar cambios del input "password"
@@ -46,6 +48,9 @@ class Signup {
     validator.validatePasswordRepeat(password, passwordRepeat);
 
     this.setErrorMessages();
+
+    // comprobar si hay errores, si no hay errores activa el boton Sign up (disabled = false)
+    this.checkButton();
   }
 
   // gestionar cambios del input "repeat-password"
@@ -59,6 +64,9 @@ class Signup {
     validator.validatePasswordRepeat(password, passwordRepeat);
 
     this.setErrorMessages();
+
+    // comprobar si hay errores, si no hay errores activa el boton Sign up (disabled = false)
+    this.checkButton();
   }
 
   // gestionar el envio de los datos (submit)
@@ -120,6 +128,21 @@ class Signup {
 
     this.errorsWrapper.appendChild(successMessageP);
 
+  }
+
+  
+  // activar o desactivar el botón de envio (Sign Up)
+  checkButton = () => {
+    const errorsObj = validator.getErrors();
+    const errorsArr = Object.values(errorsObj);
+    
+
+    if(errorsArr.length > 0) {
+      this.buttonInput.disabled = true;
+    }
+    else {
+      this.buttonInput.disabled = false;
+    }
   }
 
   removeMessages = () => {
