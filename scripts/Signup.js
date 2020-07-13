@@ -98,6 +98,11 @@ class Signup {
 
     this.showSuccessMessage();
     this.removeMessages();
+
+    // reiniciar los errores del `validator`
+    validator.resetValidator();
+    // desactivar el botón Sign Up de nuevo
+    this.buttonInput.disabled = true;
   }
 
   // registarar funciones para cada input/campo
